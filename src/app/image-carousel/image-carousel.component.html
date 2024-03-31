@@ -1,0 +1,11 @@
+<p-carousel
+  [value]="images"
+  [numVisible]="1"
+  [circular]="true"
+  [autoplayInterval]="3000"
+  orientation="vertical"
+>
+  <ng-template let-image pTemplate="item">
+    <img [src]="image" class="img-fluid" />
+  </ng-template>
+</p-carousel>

@@ -1,0 +1,27 @@
+<div class="search-container">
+  <div class="search-input">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Enter your search"
+    />
+    <select [(ngModel)]="chosenFilter">
+      <option value="" selected disabled hidden>Select a category</option>
+      <option *ngFor="let option of filterOptions" [value]="option.value">
+        {{ option.label }}
+      </option>
+    </select>
+    <button (click)="performSearch()" type="button">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+
+  <div class="search-results" *ngIf="searchResults">
+    <div class="result-item" *ngFor="let item of searchResults.items">
+      <h3>
+        <a href="{{ item.link }}">{{ item.title }}</a>
+      </h3>
+      <p>{{ item.snippet }}</p>
+    </div>
+  </div>
+</div>
